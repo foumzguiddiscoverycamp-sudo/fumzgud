@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Foum Zguid Discovery Camp",
+  "description": "Premium Sahara desert experiences and transfers in Foum Zguid, Morocco. Managed by Majid.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
