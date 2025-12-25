@@ -28,22 +28,45 @@
       .animate-slow-zoom {
         animation: slow-zoom 20s infinite alternate ease-in-out;
       }
+      #error-display {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: white; color: red; padding: 20px; z-index: 9999;
+        font-family: monospace; overflow: auto;
+      }
     </style>
-  <script type="importmap">
+    <script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "@google/genai": "https://esm.sh/@google/genai@1.3.0",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
     "react/": "https://esm.sh/react@^19.2.3/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
     "vite": "https://esm.sh/vite@^7.3.0"
   }
 }
 </script>
-</head>
+  </head>
   <body>
-    <div id="root"></div>
-    <!-- Vite سيقوم بمعالجة هذا الملف تلقائياً وتحويله لـ JS -->
-    <script type="module" src="/index.tsx"></script>
+    <div id="root">
+      <div class="h-screen flex items-center justify-center bg-stone-50">
+        <div class="text-orange-600 font-bold animate-pulse text-xl italic">Loading Foum Zguid Magic...</div>
+      </div>
+    </div>
+    <div id="error-display"></div>
+    <script>
+      // صائد الأخطاء: إذا حدث خطأ في التحميل سيظهر لك رسالة بدلاً من الصفحة البيضاء
+      window.onerror = function(msg, url, lineNo, columnNo, error) {
+        const display = document.getElementById('error-display');
+        display.style.display = 'block';
+        display.innerHTML = `<h3>Error Detected:</h3><p>${msg}</p><small>Line: ${lineNo}, URL: ${url}</small>`;
+        return false;
+      };
+    </script>
+    <!-- تم تغيير المسار ليكون نسبياً ./ بدلاً من / ليعمل على GitHub Pages -->
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>

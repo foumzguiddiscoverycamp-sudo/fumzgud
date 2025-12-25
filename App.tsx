@@ -1,11 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
-import { Language, Translation } from './types';
-import { TOURS, TRANSLATIONS, CONTACT_INFO } from './constants';
-import LanguageToggle from './components/LanguageToggle';
-import TourCard from './components/TourCard';
-import TransferSection from './components/TransferSection';
-import { getDesertTips } from './services/geminiService';
+import { Language, Translation } from './types.ts';
+import { TOURS, TRANSLATIONS, CONTACT_INFO } from './constants.tsx';
+import LanguageToggle from './components/LanguageToggle.tsx';
+import TourCard from './components/TourCard.tsx';
+import TransferSection from './components/TransferSection.tsx';
+import { getDesertTips } from './services/geminiService.ts';
 
 const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('en');
@@ -152,7 +152,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Tours Section - تم تحسين العرض ليناسب رحلتين */}
+      {/* Tours Section */}
       <section id="tours" className="py-40 bg-stone-100/50 px-6 border-y border-stone-200">
         <div className="max-w-7xl mx-auto mb-24 text-center">
           <h2 className="text-5xl md:text-7xl font-bold mb-8">{t.toursTitle}</h2>
